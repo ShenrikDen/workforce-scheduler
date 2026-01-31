@@ -9,8 +9,25 @@ import java.util.List;
 
 @RestController
 public class EmployeeController {
-        @GetMapping("/hello")
-        public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-            return String.format("Hello %s!", name);
-        }
+    private final EmployeeService employeeService;
+
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+
+    @GetMapping("/hello")
+    public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
+        return employeeService.getHello(name);
+    }
+
+    @GetMapping("/employees")
+    public List<EmployeeModel> getEmployees() {
+        return employeeService.getEmployees();
+    }
+
+    @PostMapping("/employees")
+    @ResponseStatus(HttpStatus.CREATED)
+    public EmployeeModel createEmployee(@RequestBody EmployeeModel employee) {
+        return employeeService.createEmployee(employee);
+    }
 }
