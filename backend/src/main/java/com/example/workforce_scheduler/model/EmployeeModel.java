@@ -6,6 +6,9 @@ public class EmployeeModel {
     private String email;
     private String jobTitle;
 
+    public EmployeeModel() {
+    }
+
     public EmployeeModel(int id, String name, String email, String jobTitle) {
         this.id = id;
         this.name = name;
