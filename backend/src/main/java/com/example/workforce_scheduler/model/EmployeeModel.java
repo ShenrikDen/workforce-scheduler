@@ -8,14 +8,14 @@ public class EmployeeModel {
 
     public EmployeeModel() {
     }
-
+/*
     public EmployeeModel(int id, String name, String email, String jobTitle) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.jobTitle = jobTitle;
     }
-
+*/
     public int getId() {
         return id;
     }
